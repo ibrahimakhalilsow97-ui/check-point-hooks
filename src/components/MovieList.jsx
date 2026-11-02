@@ -1,20 +1,22 @@
-
-
     import MovieCard from "./MovieCard";
+    import Row from "react-bootstrap/Row";
+    import Col from "react-bootstrap/Col";
 
-function MovieList({ movies }) {
+    function MovieList({ movies }) {
     return (
-        <div className="movie-list">
-        {movies.map((movie, index) => (
+        <Row className="g-4">
+        {movies.map((movie) => (
+            <Col key={movie.id} xs={12} md={6}>
             <MovieCard
-            key={index}
-            titre={movie.titre}
-            description={movie.description}
-            posterURL={movie.posterURL}
-            note={movie.note}
+                id={movie.id}
+                titre={movie.titre}
+                description={movie.description}
+                posterURL={movie.posterURL}
+                note={movie.note}
             />
+            </Col>
         ))}
-        </div>
+        </Row>
     );
     }
 
